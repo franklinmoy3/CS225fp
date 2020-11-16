@@ -1,0 +1,3 @@
+# CS 225 Final Project Goals
+## Vish Gopal Sekar, Akshay Bhamidipati, Franklin Moy
+We will use the airports.dat file and will begin by traversing the routes and connecting the source and destination airports with an edge that represents the distance between them as an integer. We will use some sort of map service that allows us to compute the distance between each airport. We will then traverse this graph using the DFS traversal. We will begin our first option with Dijkstra’s algorithm to find the shortest distance from two randomly chosen airports. We will then use Prim’s algorithm to find the minimum spanning tree for the connected airports for the second option.
