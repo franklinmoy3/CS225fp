@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
+#include <iterator>
 #include <string>
 #include <vector>
 

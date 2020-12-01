@@ -2,7 +2,7 @@
 #include <vector>
 
 #include "/catch/catch.hpp"
-#include "../readFromFile.hpp"
+#include "../readFromFile.h"
 
 
 TEST_CASE("Verify that file_to_string works on a small example") {
