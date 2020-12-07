@@ -61,6 +61,7 @@
         "locale": "cpp",
         "queue": "cpp",
         "random": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "map": "cpp"
     }
 }
