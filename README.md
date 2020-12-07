@@ -1,3 +1,6 @@
-# akshayb3-fmoy3-vg12
-Final Project
-Link to dataset: https://openflights.org/data.html
+# CS225 Final Project
+## Akshay Bhamidipati, Franklin Moy, Vish Gopal Sekar
+- Building and running this project:  
+
+- Dataset:
+  - See [dataset_README.md](dataset/dataset_README.md) for more information on the OpenFlights dataset used. 
