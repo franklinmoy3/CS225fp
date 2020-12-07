@@ -1,5 +1,5 @@
-#include<string>
-#include<unordered_set>
+#include <string>
+#include <unordered_set>
 
 #include "graph.h"
 #include "readFromFile.h"
@@ -15,7 +15,7 @@ Graph::Graph(){
   /* When parsing the CSV, be sure not to create
      airport nodes that have already been made.
   */
-  routes = parse_CSV("routes.dat");
+  routes = parse_CSV("dataset/routes_simplified.csv");
 
   map.clear();
   map2.clear();
@@ -33,13 +33,13 @@ Graph::Graph(){
   }
 }
 
-std::vector Graph::dfs(){
+std::vector<std::string> Graph::dfs(){
   path.clear();
   visited.clear();
   return dfs("AER");
 }
 
-std::vector Graph::dfs(std::string source_airport){
+std::vector<std::string> Graph::dfs(std::string source_airport){
   //use set to keep track of visited points
   //use std::vector path to keep track of path
   for(int i = 0; i < map[source_airport].size(); i++){
