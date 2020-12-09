@@ -62,6 +62,11 @@
         "queue": "cpp",
         "random": "cpp",
         "string": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "__tree": "cpp",
+        "string_view": "cpp",
+        "set": "cpp"
     }
 }
