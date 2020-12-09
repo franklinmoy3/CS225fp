@@ -24,7 +24,7 @@ std::vector<std::vector<std::string>> parse_CSV(const std::string & filename) {
 	std::string currLine;
 	std::vector<std::vector<std::string>> out;
 
-	// Read line by line from file (CSV) stream and place each token into output vector
+	// Read line by line from file stream (assumes CSV) and place each token into inner vector, then push into output
 	if (fileStream.is_open()) {
 		while (std::getline(fileStream, currLine)) {
 			std::istringstream currLineStream(currLine);
