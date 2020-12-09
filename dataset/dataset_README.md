@@ -4,3 +4,4 @@ airports.dat and routes.dat were provided by OpenFlights (https://openflights.or
 * routes_simplified.csv is a CSV file with formatting as follows:
   * SourceAirport,DestinationAirport,numberOfStopsAlongRoute
 * routes_simplified is guaranteed to contain only unique routes
+* This project only reads in routes_simplified.csv and requires the dataset to follow the above two bullet points.
