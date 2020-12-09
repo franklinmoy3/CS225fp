@@ -7,17 +7,6 @@
 
 #include "readFromFile.h"
 
-std::string file_to_string(const std::string & filename) {
-	std::ifstream text(filename);
-	
-	std::stringstream strStream;
-	if (text.is_open()) {
-		strStream << text.rdbuf();
-	}
-
-	return strStream.str();
-}
-
 std::vector<std::vector<std::string>> parse_CSV(const std::string & filename) {
 	// Create file stream and return vector
 	std::ifstream fileStream(filename);

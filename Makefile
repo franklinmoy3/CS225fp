@@ -1,5 +1,5 @@
 EXENAME = finalproj
-OBJS = readFromFile.o main.o
+OBJS = a_star.o graph.o prims.o readFromFile.o main.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -30,11 +30,26 @@ output_msg: ; $(CLANG_VERSION_MSG)
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-readFromFile.o: main.cpp readFromFile.cpp
-	$(CXX) $(CXXFLAGS) main.cpp readFromFile.cpp
+a_star.o: a_star.cpp a_star.h
+	$(CXX) $(CXXFLAGS) a_star.h a_star.cpp
+
+graph.o: graph.cpp graph.h
+	$(CXX) $(CXXFLAGS) graph.h graph.cpp
+
+prims.o: prims.cpp prims.h
+	$(CXX) $(CXXFLAGS) prims.h prims.cpp
+
+main.o: main.cpp graph.h prims.h readFromFile.h a_star.h
+	$(CXX) $(CXXFLAGS) main.cpp
+
+readFromFile.o: readFromFile.h readFromFile.cpp
+	$(CXX) $(CXXFLAGS) readFromFile.h readFromFile.cpp
 
 test: output_msg catch/catchmain.cpp tests/tests.cpp readFromFile.cpp
 	$(LD) catch/catchmain.cpp tests/tests.cpp readFromFile.cpp $(LDFLAGS) -o test
+
+tests.o: tests/tests.cpp tests/catch/catch.hpp readFromFile.cpp
+	$(CXX) $(CXXFLAGS) tests/tests.cpp
 
 clean:
 	-rm -f *.o $(EXENAME) test

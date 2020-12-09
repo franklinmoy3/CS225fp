@@ -6,10 +6,13 @@
 
 #include "graph.h"
 
-class Prim{
+class Prims{
     private:
-        Graph graph;
+        Graph adj_list;
+        int node_count;
     public:
-        Prim(Graph g);
-        void run();
+        Prims(Graph g);
+        void primsMST();
+        void printMST(std::map<std::string, std::string> parent);
+        std::string minKey(std::map<std::string, int> key, std::map<std::string, bool> mstSet);
 };
