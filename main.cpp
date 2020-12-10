@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstring>
 #include "graph.h"
 #include "a_star.h"
 #include "prims.h"
@@ -20,44 +21,46 @@ int main(int argc, const char * argv[]) {
 	}
 
 	// A* needs two args
-	else if(argv[1] == "A*") {
+	else if(std::strcmp(argv[1], "A*") == 0) {
 		if(argc != 4) {
-			std::cout << "Usage : ./finalproj A* sourceAirport destinationAirport";
+			std::cout << "Usage : ./finalproj A* sourceAirport destinationAirport" << std::endl;
 			return 420; // hehe
 		}
 		else {
-
+			// @TODO
 		}
 	}
 
 	// Prims has no args
-	else if(argv[1] == "prims") {
+	else if(std::strcmp(argv[1], "prims") == 0) {
 		if(argc > 2) {
-			std::cout << "Usage : ./finalproj prims";
+			std::cout << "Usage : ./finalproj prims" << std::endl;
 			return 69420; // hehe
 		}
 		mainPrim.primsMST();
 	}
 
 	// DFS can have one arg (source airport) or no args
-	else if(argv[1] == "dfs") {
+	else if(std::strcmp(argv[1], "dfs") == 0) {
 		if(argc > 3) {
-			std::cout << "Usage : ./finalproj dfs sourceAirport";
+			std::cout << "Usage : ./finalproj dfs sourceAirport" << std::endl;
 			return 1738; // hehe
 		}
 		if(argc == 2) {
 			mainGraph.dfs();
+			mainGraph.printDFS();
 		}
 		else {
 			mainGraph.path.clear();
 			mainGraph.visited.clear();
 			mainGraph.dfs(argv[2]);
+			mainGraph.printDFS();
 		}
 	}
 
 	// Invalid arguments handler
 	else {
-		std::cout << "Your input couldn't be interpreted. Please follow the instructions in the README and try again.";
+		std::cout << "Invalid input. Please follow the instructions in the README and try again." << std::endl;
 		return 69; // hehe
 	}
 	return 0;

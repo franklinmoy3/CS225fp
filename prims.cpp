@@ -3,13 +3,16 @@
 #include <cstdlib>
 #include <algorithm>
 #include <map>
+#include <fstream>
+#include <limits.h>
 
 
 #include "prims.h"
 
 Prims::Prims(Graph g){
-    adj_list = g;
+    graph = g;
     node_count = g.node_count;
+    adj_list = g.adj_list;
 }
 
 // A C++ program for Prim's Minimum  
@@ -22,7 +25,7 @@ Prims::Prims(Graph g){
 // A utility function to find the vertex with  
 // minimum key value, from the set of vertices  
 // not yet included in MST  
-std::string minKey(std::map<std::string, int> key, std::map<std::string, bool> mstSet){  
+std::string Prims::minKey(std::map<std::string, int> key, std::map<std::string, bool> mstSet){  
     // Initialize min value  
     int min = INT_MAX;
     std::string min_index;  
@@ -39,12 +42,15 @@ std::string minKey(std::map<std::string, int> key, std::map<std::string, bool> m
   
 // A utility function to print the  
 // constructed MST stored in parent[]  
-void printMST(std::map<std::string, std::string> parent)  
+void Prims::printMST(std::map<std::string, std::string> parent)  
 {  
-    std::cout<<"Edge \tWeight\n";
+    std::ofstream outFile("primsMST_output.txt");
+    outFile << "Edge \tWeight\n" << std::endl;
     for(auto airport : adj_list){
-        std::cout<<parent[airport.first]<<" - "<<airport.first<<" \t"<<(adj_list[airport.first])[parent[airport.first]]<<" \n";
+        outFile << parent[airport.first] << " - " << airport.first << " \t" << (adj_list[airport.first])[parent[airport.first]] << " \n";
     }
+    outFile.close();
+    std::cout << "Prim's MST written to primsMST_output.txt" << std::endl;
     // for (int i = 1; i < node_count; i++){
     //     std::cout<<parent[i]<<" - "<<i<<" \t"<<graph[i][parent[i]]<<" \n";
     // }
@@ -53,7 +59,7 @@ void printMST(std::map<std::string, std::string> parent)
 // Function to construct and print MST for  
 // a graph represented using adjacency  
 // matrix representation  
-void primsMST()  
+void Prims::primsMST()  
 {  
     // Array to store constructed MST  
     //int parent[V];
@@ -79,6 +85,7 @@ void primsMST()
     parent["AER"] = "(Ignore Parent of First Airport)"; // First node is always root of MST
   
     // The MST will have V vertices  
+    std::cout << node_count << std::endl;
     for (int count = 0; count < node_count - 1; count++) 
     {  
         // Pick the minimum key vertex from the  

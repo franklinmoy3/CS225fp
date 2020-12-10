@@ -1,5 +1,9 @@
 .vscode
 
+finalproj
+test
+
 .DS_Store
 *.o
 *.d
+*.gch
