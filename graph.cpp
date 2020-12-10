@@ -63,6 +63,13 @@ Graph::Graph(){
 void Graph::printDFS(){
   // Open file stream to write to file
   std::ofstream outFile("dfs_output.txt");
+  /*for(auto itr = adj_list.begin(); itr != adj_list.end(); ++itr) {
+    std::map<std::string, double> inner = itr->second;
+    for(auto itr2 = inner.begin(); itr2 != inner.end(); ++itr2) {
+      outFile << itr2->second << ",";
+    }
+    outFile << std::endl; 
+  } */
   // Write DFS path to file 
   outFile << "Generated DFS Traversal : " << std::endl;
   for(auto itr = path.begin(); itr != path.end(); ++itr) {
