@@ -13,7 +13,7 @@
       - If you only enter "./finalproj dfs", the program will run a DFS from every single airport.
     - Prims: "./finalproj prims"
       - The program will not run if you add more arguments on top of "prims". 
-    - Landmark Path: "./finalproj landmark `[sourceAirport]``[destinationAirport]``[landmarkAirport]`"
+    - Landmark Path: "./finalproj landmark `[sourceAirport][destinationAirport][landmarkAirport]`"
       - Note that airport codes are in all caps. An undefined output will occur if you use any lowercase characters. 
       - landmarkAirport is the airport that the traversal will visit on its way from sourceAirport to destinationAirport.
 - Dataset:
