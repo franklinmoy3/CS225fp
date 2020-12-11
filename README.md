@@ -17,4 +17,6 @@
       - Note that airport codes are in all caps. An undefined output will occur if you use any lowercase characters. 
       - landmarkAirport is the airport that the traversal will visit on its way from sourceAirport to destinationAirport.
 - Dataset:
-  - See [dataset_README.md](dataset/dataset_README.md) for more information on the OpenFlights dataset used. 
+  - See [dataset_README.md](dataset/dataset_README.md) for more information on the OpenFlights dataset used.  
+- Our observations and results:
+  - See [RESULTS.md](RESULTS.md).
