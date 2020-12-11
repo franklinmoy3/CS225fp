@@ -25,5 +25,6 @@ std::vector<std::vector<std::string>> parse_CSV(const std::string & filename) {
 			out.push_back(lineVec);
 		}
 	}
+	fileStream.close();
 	return out;
 }

@@ -2,14 +2,14 @@
 #include <vector>
 #include <cstring>
 #include "graph.h"
-#include "a_star.h"
 #include "prims.h"
+//#include "landmark.h"
 #include "readFromFile.h"
 
 int main(int argc, const char * argv[]) {
 	Graph mainGraph;
 	Prims mainPrim(mainGraph);
-	// PLACE A_STAR VAR HERE
+	// PLACE LANDMARK VAR HERE
 	
 	// argv[1] is the first argument, so on...
 	// No arguments passed, run all three algos at once with default args
@@ -17,17 +17,20 @@ int main(int argc, const char * argv[]) {
 		mainGraph.dfs();
 		mainGraph.printDFS();
 		mainPrim.primsMST();
-		// PLACE A_STAR TRAV HERE
+		// PLACE LANDMARK TRAV HERE
 	}
 
-	// A* needs two args
-	else if(std::strcmp(argv[1], "A*") == 0) {
-		if(argc != 4) {
-			std::cout << "Usage : ./finalproj A* sourceAirport destinationAirport" << std::endl;
+	// Landmark can have 3 args or no args
+	else if(std::strcmp(argv[1], "landmark") == 0) {
+		if(argc == 2) {
+			// @TODO: PLACE DEFAULT LANDMARK TRAV HERE
+		}
+		else if(argc != 5) {
+			std::cout << "Usage : ./finalproj landmark sourceAirport destinationAirport landmarkAirport" << std::endl;
 			return 420; // hehe
 		}
 		else {
-			// @TODO
+			// @TODO: PLACE LANDMARK TRAV WITH ARGS HERE
 		}
 	}
 
@@ -43,7 +46,7 @@ int main(int argc, const char * argv[]) {
 	// DFS can have one arg (source airport) or no args
 	else if(std::strcmp(argv[1], "dfs") == 0) {
 		if(argc > 3) {
-			std::cout << "Usage : ./finalproj dfs sourceAirport" << std::endl;
+			std::cout << "Usage : ./finalproj dfs [sourceAirport]" << std::endl;
 			return 1738; // hehe
 		}
 		if(argc == 2) {

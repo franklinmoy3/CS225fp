@@ -30,5 +30,5 @@ class Graph{
 
 // Haversine formula used to find great-circle distance that will be used as edge weights 
 long double distance(long double lat1, long double long1, long double lat2, long double long2);
-// Converts degrees to radians for great-circle distance formula
+// Converts degrees of longitude or latitude to radians for use in the Haversine formula
 long double deg2rad(long double degree);

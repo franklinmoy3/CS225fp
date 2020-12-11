@@ -2,6 +2,7 @@
 
 finalproj
 test
+debug_log.txt
 
 .DS_Store
 *.o
