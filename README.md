@@ -17,6 +17,7 @@
       - If you only enter "./finalproj dfs", the program will run a DFS from every single airport.
     - Prims: "./finalproj prims"
       - The program will not run if you add more arguments on top of "prims". 
+      - If there exist discontinuities in the dataset, the output file will not include them.
     - Landmark Path: "./finalproj landmark `[sourceAirport][landmarkAirport][destinationAirport]`"
       - Note that airport codes are in ALL CAPS. An undefined output will occur if you use any lowercase characters. 
       - landmarkAirport is the airport that the traversal will visit on its way from sourceAirport to destinationAirport.
@@ -25,3 +26,4 @@
   - See [dataset_README.md](dataset/dataset_README.md) for more information on the OpenFlights dataset used.  
 - Our observations and results:
   - See [RESULTS.md](RESULTS.md).
+  - Watch our video presentation [here]().
