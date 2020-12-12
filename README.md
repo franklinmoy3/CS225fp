@@ -21,9 +21,9 @@
     - Landmark Path: "./finalproj landmark `[sourceAirport][landmarkAirport][destinationAirport]`"
       - Note that airport codes are in ALL CAPS. An undefined output will occur if you use any lowercase characters. 
       - landmarkAirport is the airport that the traversal will visit on its way from sourceAirport to destinationAirport.
-      - If you only enter "./finalproj landmark", the program will run a landmark path traversal starting from ORD to JFK with a stop in CMI.
+      - If you only enter "./finalproj landmark", the program will run a landmark path traversal starting from ORD to CMI with a stop in JFK.
 - Dataset:
   - See [dataset_README.md](dataset/dataset_README.md) for more information on the OpenFlights dataset used.  
 - Our observations and results:
   - See [RESULTS.md](RESULTS.md).
-  - Watch our video presentation [here]().
+  - Watch our video presentation [here](https://drive.google.com/file/d/1b-3CGkXxFuGSoN2V78OcTwV1PZ_tbpMv/view?usp=sharing).
