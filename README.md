@@ -6,7 +6,7 @@
     - Navigate to the directory containing this project and type "make" in your terminal.
 - Running this project:
   - Type "./finalproj" to run the executable with no arguments.
-    - This will run a DFS traversal with a source airport of AAE, a Prim's Minimum Spanning Tree starting from airport AER, and a landmark path traversal starting from ORD to JFK with a stop in CMI.
+    - This will run a DFS traversal with a source airport of AAE, a Prim's Minimum Spanning Tree starting from airport AER, and a landmark path traversal starting from ORD to CMI with a stop in JFK.
   - Each algorithm will write its results to a file. (The program will tell you the file names in the terminal.)
     - For the outputs for DFS and Landmark Path, the traversal is to be read from top to bottom.
     - The output for Prim's lists all of the edges in the generated MST in alphabetical order with respect to the second column.

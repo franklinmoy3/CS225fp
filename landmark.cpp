@@ -41,7 +41,7 @@ std::string Landmark::minDistance(std::map<std::string, double> key, std::map<st
 }
 
 void Landmark::findLandmarkPath() {
-    findLandmarkPath("ORD", "JFK", "CMI"); // source, destination, and landmark
+    findLandmarkPath("ORD", "JFK", "CMI"); // source, landmark, and destination
 }
 
 void Landmark::findLandmarkPath(std::string source, std::string landmark, std::string destination){
