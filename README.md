@@ -7,6 +7,7 @@
   - Type "./finalproj" to run the executable with no arguments.
     - This will run a DFS traversal with a source airport of ORD, a Prim's Minimum Spanning Tree starting from airport AAE, and a landmark path traversal starting from ORD to JFK with a stop in CMI.
   - Each algorithm will write its results to a file. (The program will tell you the file name in the terminal.)
+    - The 
   - You can also run each individual algorithm independently by typing the name of the algorithm after the executable:
     - DFS: "./finalproj dfs `[sourceAirport]`"
       - Note that airport codes are in all caps. An undefined output will occur if you use any lowercase characters.

@@ -38,7 +38,7 @@ std::string Prims::minKey(std::map<std::string, double> key){
         }
     }
 
-    // return min dist
+    // return airport with the min dist
     return min_index;  
 }  
   
@@ -114,16 +114,12 @@ void Prims::primsMST()
             // key, update the parent of the new node to v and the new minimum
             // weight in key appropriately.
             // Update the key only if graph[u][v] is smaller than key[v]
-            if(key.find(v.first) == key.end() && mstSet[v.first] == false) {
-                key.insert({v.first, INT_MAX});
-            }
-         
-        // Eliminate u from the key since it is not needed anymore   
             if (mstSet[v.first] == false && v.second + key[u] < key[v.first]){
                 parent[v.first] = u;
                 key[v.first] = v.second + key[u];  
             }
         }
+        // Eliminate u from the key since it is not needed anymore
         key.erase(u);
     }  
   

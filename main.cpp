@@ -3,13 +3,13 @@
 #include <cstring>
 #include "graph.h"
 #include "prims.h"
-//#include "landmark.h"
+#include "landmark.h"
 #include "readFromFile.h"
 
 int main(int argc, const char * argv[]) {
 	Graph mainGraph;
 	Prims mainPrim(mainGraph);
-	// PLACE LANDMARK VAR HERE
+	Landmark mainLP(mainGraph);
 	
 	// argv[1] is the first argument, so on...
 	// No arguments passed, run all three algos at once with default args
@@ -17,20 +17,20 @@ int main(int argc, const char * argv[]) {
 		mainGraph.dfs();
 		mainGraph.printDFS();
 		mainPrim.primsMST();
-		// PLACE LANDMARK TRAV HERE
+		mainLP.findLandmarkPath();
 	}
 
 	// Landmark can have 3 args or no args
 	else if(std::strcmp(argv[1], "landmark") == 0) {
 		if(argc == 2) {
-			// @TODO: PLACE DEFAULT LANDMARK TRAV HERE
+			mainLP.findLandmarkPath();
 		}
 		else if(argc != 5) {
 			std::cout << "Usage : ./finalproj landmark sourceAirport destinationAirport landmarkAirport" << std::endl;
 			return 420; // hehe
 		}
 		else {
-			// @TODO: PLACE LANDMARK TRAV WITH ARGS HERE
+			mainLP.findLandmarkPath(argv[2], argv[3], argv[4]);
 		}
 	}
 

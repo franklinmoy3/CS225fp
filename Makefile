@@ -1,5 +1,5 @@
 EXENAME = finalproj
-OBJS = graph.o readFromFile.o main.o prims.o #landmark.o
+OBJS = graph.o readFromFile.o main.o prims.o landmark.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -30,8 +30,8 @@ output_msg: ; $(CLANG_VERSION_MSG)
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-#landmark.o: landmark.cpp landmark.h
-	#$(CXX) $(CXXFLAGS) landmark.cpp
+landmark.o: landmark.cpp landmark.h
+	$(CXX) $(CXXFLAGS) landmark.cpp
 
 graph.o: graph.cpp graph.h
 	$(CXX) $(CXXFLAGS) graph.cpp
@@ -39,7 +39,7 @@ graph.o: graph.cpp graph.h
 prims.o: prims.cpp prims.h
 	$(CXX) $(CXXFLAGS) prims.cpp
 
-main.o: main.cpp graph.h readFromFile.h prims.h #landmark.h
+main.o: main.cpp graph.h readFromFile.h prims.h landmark.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
 readFromFile.o: readFromFile.h readFromFile.cpp
