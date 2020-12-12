@@ -3,7 +3,7 @@
 - Building/Compiling this project:
   - Download or clone this repository.
   - Compile this project by running make in your terminal:
-    - Navigate to the directory containing this project and type "make" in your terminal.
+    - Navigate to the directory containing this project and type `make` in your terminal.
 - Running this project:
   - Type `./finalproj` to run the executable with no arguments.
     - This will run a DFS traversal with a source airport of AAE, a Prim's Minimum Spanning Tree starting from airport AER, and a landmark path traversal starting from ORD to CMI with a stop in JFK.
