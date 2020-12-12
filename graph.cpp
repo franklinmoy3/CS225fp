@@ -74,7 +74,7 @@ void Graph::printDFS(){
   // Write DFS path to file 
   outFile << "Generated DFS Traversal : " << std::endl;
   for(auto itr = path.begin(); itr != path.end(); ++itr) {
-    outFile << *itr << "->" << std::endl;
+    outFile << *itr << std::endl;
   }
   outFile << "End of traversal";
   outFile.close();

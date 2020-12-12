@@ -38,12 +38,12 @@ std::string Prims::minKey(std::map<std::string, double> key){
         }
     }
 
-    // return airport with the min dist
+    // return min dist
     return min_index;  
 }  
   
 // A function to print the  
-// constructed MST stored in parent[]  
+// constructed MST stored in parent map
 void Prims::printMST(std::map<std::string, std::string> parent)  
 {  
     // Open output file for writing
@@ -51,7 +51,8 @@ void Prims::printMST(std::map<std::string, std::string> parent)
     outFile << "Edge \tWeight\n" << std::endl;
     // Print out all edges and weights in the MST
     for(auto airport : adj_list){
-        outFile << parent[airport.first] << " - " << airport.first << " \t" << (adj_list[airport.first])[parent[airport.first]] << " \n";
+        if(parent[airport.first] != "")
+            outFile << parent[airport.first] << " - " << airport.first << " \t" << (adj_list[airport.first])[parent[airport.first]] << " \n";
     }
     outFile.close();
     std::cout << "Prim's MST written to primsMST_output.txt" << std::endl;
@@ -119,10 +120,10 @@ void Prims::primsMST()
                 key[v.first] = v.second + key[u];  
             }
         }
-        // Eliminate u from the key since it is not needed anymore
+        // Eliminate u from the key since it is not needed anymore  
         key.erase(u);
     }  
   
     // print the constructed MST  
     printMST(parent);  
-}  
+}

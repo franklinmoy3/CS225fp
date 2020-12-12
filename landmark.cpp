@@ -14,26 +14,15 @@ Landmark::Landmark(Graph & g){
     adj_list = g.adj_list;
 }
 
-// void Landmark::printLandmarkPath(std::vector<std::string> path){
-    // std::ofstream outFile("landmark_output.txt");
-    // outFile << "Generated Landmark Path" << std::endl;
-//     for(auto airport : path){
-//         outFile << airport << "->" << std::endl;
-//     }
-//     outFile << "End landmark path: Destination reached";
-//     outFile.close();
-// }
-
-void Landmark::printLandmarkPath(std::map<std::string, std::string> parent)
+void Landmark::printLandmarkPath()
 {  
-    // Open output file for writing
-    std::ofstream outFile("landmark_output.txt");
-    outFile << "Generated Landmark Path" << std::endl;
-    // Print out all edges and weights in the MST
-    std::string airport = "JFK";
-    while(airport != "None"){
-        outFile << airport << " - " << parent[airport] << " \t" << (adj_list[airport])[parent[airport]] << " \n";
+    // Open output file for writing (append to file)
+    std::ofstream outFile("landmark_output.txt", std::ofstream::out | std::ofstream::app);
+    // Print out the landmark path (it writes in reverse so it must be read from bottom to top)
+    for(auto airport : landmarkPath) {
+        outFile << airport << std::endl;
     }
+    outFile << "End of landmark path: destination reached";
     outFile.close();
 }
 
@@ -55,11 +44,18 @@ void Landmark::findLandmarkPath() {
     findLandmarkPath("ORD", "JFK", "CMI"); // source, destination, and landmark
 }
 
-void Landmark::findLandmarkPath(std::string source, std::string destination, std::string landmark){
-    landmarkPath.push_back(source);
-    findLandmarkPathHelper(source, landmark);
-    landmarkPath.clear();
+void Landmark::findLandmarkPath(std::string source, std::string landmark, std::string destination){
+    // Flush out the existing file for overwriting
+    std::ofstream outFile("landmark_output.txt");
+    outFile << "Generated Landmark Path:" << std::endl;
+    outFile.close();
+    // Traverse from landmark to destination first because we're pushing to the path vector like a stack
     findLandmarkPathHelper(landmark, destination);
+    // Now go from source to landmark using SSSP
+    findLandmarkPathHelper(source, landmark);
+    // Push the source to the path vector
+    landmarkPath.insert(landmarkPath.begin(), source);
+    printLandmarkPath();
     std::cout << "Landmark path written to landmark_output.txt" << std::endl;
 }
 
@@ -70,16 +66,17 @@ void Landmark::findLandmarkPathHelper(std::string sourceAirport, std::string des
     // Map (shortest-path tree) describing whether or not a certain vertex was visited
     std::map<std::string, bool> sptMap;
     // Parent array used to keep track of the path
-    std::map <std::string, std::string> parent;
+    std::map<std::string, std::string> parent;
 
-    //Initialize sptMap to all false
+    //Initialize distances as infinite and sptMap to all false because none of the nodes have been visited yet
     for(auto itr = graph.airports.begin(); itr != graph.airports.end(); ++itr) {
-        //dist.insert({itr->first, INT_MAX});
+        dist.insert({itr->first, INT_MAX});
         sptMap.insert({itr->first, false});
     }
 
     // Distance between source and itself is zero
     dist[sourceAirport] = 0;
+    // There is no airport that we visit before the starting airport, set to "None"
     parent[sourceAirport] = "None";
 
     // Run search until we get to our destination
@@ -90,20 +87,17 @@ void Landmark::findLandmarkPathHelper(std::string sourceAirport, std::string des
         
         // Update the distance of the vertices adjacent to the traversed vertex
         for(auto v : adj_list[u]) {
-            // If the distances data structure does not have the node connected to u
-            // and it is unvisited, insert the new node into key with its value
-            // as INT_MAX
-            if(dist.find(v.first) == dist.end() && sptMap[v.first] == false) {
-                dist.insert({v.first, INT_MAX});
-            }
             // Only update the distance of the adjacent airport if it is not visited already
             if(sptMap[v.first] == false && v.second + dist[u] < dist[v.first]) {
                 parent[v.first] = u;
                 dist[v.first] = dist[u] + v.second;
             }
         }
-        // Push the visited vertex into the landmark path record
-        //landmarkPath.push_back(u);
     }
-    printLandmarkPath(parent);
+    // Parse and add corresponding half of traversal to path
+    std::string airport = destAirport;
+    while(parent[airport] != "None"){
+        landmarkPath.insert(landmarkPath.begin(), airport);
+        airport = parent[airport];
+    } 
 }

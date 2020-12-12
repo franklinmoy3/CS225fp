@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
 			mainLP.findLandmarkPath();
 		}
 		else if(argc != 5) {
-			std::cout << "Usage : ./finalproj landmark sourceAirport destinationAirport landmarkAirport" << std::endl;
+			std::cout << "Usage : ./finalproj landmark sourceAirport landmarkAirport destinationAirport" << std::endl;
 			return 420; // hehe
 		}
 		else {
