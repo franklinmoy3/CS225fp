@@ -73,7 +73,7 @@ void Prims::primsMST()
     std::map<std::string, bool> mstSet;
 
     // Initilize mstSet to false
-    for(auto itr = graph.airports.begin(); itr != graph.airports.end(); ++itr) {
+    for(auto itr = adj_list.begin(); itr != adj_list.end(); ++itr) {
         mstSet.insert({itr->first, false});
     }
 
