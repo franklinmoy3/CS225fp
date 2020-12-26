@@ -18,10 +18,7 @@ Prims::Prims(Graph & g){
 // A C++ program for Prim's Minimum  
 // Spanning Tree (MST) algorithm. The program is  
 // for adjacency matrix representation of the graph  
-  
-// Number of vertices in the graph  
-// #define V 5  
-  
+    
 // Finds the vertex with the
 // minimum key value from the set of vertices  
 // not yet in the MST
